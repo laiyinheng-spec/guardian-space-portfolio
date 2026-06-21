@@ -1,0 +1,18 @@
+:root {
+  --color-bg: #fffdf8;
+  --color-section: #f7f1e8;
+  --color-card: #fdf7ef;
+  --color-primary: #7c3f2d;
+  --color-accent: #eb6435;
+  --color-accent-secondary: #f99761;
+  --color-accent-soft: #fbcea5;
+  --color-accent-pale: #fbf1e1;
+  --color-text-main: #3e2e27;
+  --color-text-secondary: #7b6a5f;
+  --color-text-muted: #a99589;
+  --color-line: #e6d5c7;
+  --color-line-strong: #d7bdad;
+  --color-paper-deep: #efe3d5;
+  --font-family-body: "Inter", "Helvetica Neue", "Avenir", Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --page02-ratio: 1420 / 1004;
+}
