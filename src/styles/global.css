@@ -182,6 +182,8 @@
 
 .page02-key-finding .page02-module-title {
   margin-bottom: 0;
+  font-size: 1.04cqw;
+  font-weight: 800;
 }
 
 .page02-finding-flow {
@@ -226,16 +228,18 @@
 .page02-finding-node p {
   margin: 0;
   color: var(--color-text-main);
-  font-size: 0.64cqw;
-  line-height: 1.18;
+  font-size: 0.76cqw;
+  font-weight: 650;
+  line-height: 1.22;
 }
 
 .page02-finding-sentence {
   max-width: 60cqw;
   margin: 0;
-  color: var(--color-text-secondary);
-  font-size: 0.68cqw;
-  line-height: 1.34;
+  color: #eb6435;
+  font-size: 0.82cqw;
+  font-weight: 750;
+  line-height: 1.38;
 }
 
 .page02-research-block,
