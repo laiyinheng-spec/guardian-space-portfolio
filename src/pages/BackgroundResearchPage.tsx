@@ -1,3 +1,4 @@
+import { useEffect, useState, type CSSProperties, type ReactNode } from 'react';
 import {
   HeartHandshake,
   Home,
@@ -8,6 +9,9 @@ import {
 } from 'lucide-react';
 
 const assetBase = './assets/page02';
+const boardWidth = 1680;
+const boardHeight = 1096;
+const viewerHorizontalPadding = 32;
 
 const channelGroups = [
   {
@@ -45,7 +49,7 @@ function SectionTitle({ children }: { children: string }) {
   return <h3 className="page02-section-title">&middot; {children}</h3>;
 }
 
-function ResearchBlock({ title, children, className = '' }: { title: string; children: React.ReactNode; className?: string }) {
+function ResearchBlock({ title, children, className = '' }: { title: string; children: ReactNode; className?: string }) {
   return (
     <section className={`page02-research-block ${className}`}>
       <ModuleHeader>{title}</ModuleHeader>
@@ -55,9 +59,33 @@ function ResearchBlock({ title, children, className = '' }: { title: string; chi
 }
 
 export default function BackgroundResearchPage() {
+  const [boardScale, setBoardScale] = useState(1);
+
+  useEffect(() => {
+    const updateBoardScale = () => {
+      const availableWidth = Math.max(1, window.innerWidth - viewerHorizontalPadding);
+      const nextScale = availableWidth / boardWidth;
+
+      setBoardScale(Number(nextScale.toFixed(4)));
+    };
+
+    updateBoardScale();
+    window.addEventListener('resize', updateBoardScale);
+
+    return () => window.removeEventListener('resize', updateBoardScale);
+  }, []);
+
+  const viewerStyle = {
+    '--page02-scale': boardScale,
+    width: `${boardWidth * boardScale}px`,
+    height: `${boardHeight * boardScale}px`,
+  } as CSSProperties & { '--page02-scale': number };
+
   return (
     <main className="page02-stage" aria-label="Guardian Space Page 02 Background and Secondary Research">
-      <article className="page02-board">
+      <div className="page02-board-viewer" style={viewerStyle}>
+        <div className="page02-board-scale-frame">
+          <article className="page02-board">
         <section className="page02-left" aria-labelledby="page02-background-title">
           <header className="page02-header page02-header--left">
             <h1 id="page02-background-title">BACKGROUND</h1>
@@ -96,12 +124,40 @@ export default function BackgroundResearchPage() {
 
             <section className="page02-visual-block page02-visual-block--china">
               <ModuleHeader>China Stray Animal Scale</ModuleHeader>
-              <img
-                className="page02-map-image"
-                src={`${assetBase}/china-stray-map.png`}
-                alt="China map showing reported stray animal hotspot examples"
-              />
-              <p className="page02-source-note">
+              <div className="page02-china-map-stage">
+                <div className="page02-china-fact-box">
+                  <span>2021 national estimate</span>
+                  <strong>53M stray cats + 40M stray dogs &asymp; 93M total</strong>
+                </div>
+                <div className="page02-china-map-frame">
+                  <img
+                    className="page02-map-image"
+                    src={`${assetBase}/china-stray-map.png`}
+                    alt="China map showing reported stray animal hotspot examples"
+                  />
+                </div>
+                <div className="page02-china-analysis-panel" aria-label="China stray animal visibility patterns">
+                  <span className="page02-china-overview-label">National visibility / distribution overview</span>
+                  <div className="page02-china-pattern-list">
+                    <p>Coastal urban clusters</p>
+                    <p>High-density municipalities</p>
+                    <p>Stronger rescue/report exposure</p>
+                    <p>Uneven inland distribution</p>
+                  </div>
+                </div>
+                <div className="page02-china-map-summary">
+                  <strong>Stray animal visibility is stronger in major urban and coastal regions.</strong>
+                  <p>
+                    Large cities usually show higher public visibility, stronger rescue exposure, and denser reporting
+                    activity, while inland regions may still face pressure but appear less visible in public data. This
+                    pattern reflects visibility and reporting concentration rather than an exact geographic census.
+                    Long-term support therefore needs to consider both visible urban hotspots and less-documented
+                    regional pressure. The pattern also suggests that future support systems should combine public
+                    reporting, rescue coordination, and sustained follow-up beyond the most visible coastal cities.
+                  </p>
+                </div>
+              </div>
+              <p className="page02-source-note page02-source-note--china">
                 2021 national estimate: 53M stray cats + 40M stray dogs, about 93M total. Reported hotspots are
                 examples, not a complete province-by-province census.
               </p>
@@ -109,12 +165,32 @@ export default function BackgroundResearchPage() {
 
             <section className="page02-visual-block page02-visual-block--global">
               <ModuleHeader>Global Stray Animal Visibility</ModuleHeader>
-              <img
-                className="page02-map-image"
-                src={`${assetBase}/global-stray-distribution.png`}
-                alt="World map showing relative public visibility of homeless cats and dogs"
-              />
-              <p className="page02-source-note">
+              <div className="page02-global-map-stage">
+                <div className="page02-global-map-canvas">
+                  <img
+                    className="page02-map-image"
+                    src={`${assetBase}/global-stray-distribution.png`}
+                    alt="World map showing relative public visibility of homeless cats and dogs"
+                  />
+                  <div className="page02-global-callout page02-global-callout--asia">
+                    <h4>South &amp; Southeast Asia</h4>
+                  </div>
+                  <div className="page02-global-callout page02-global-callout--latin">
+                    <h4>Latin America</h4>
+                  </div>
+                  <div className="page02-global-callout page02-global-callout--africa">
+                    <h4>Africa / Emerging Urban Regions</h4>
+                  </div>
+                </div>
+                <div className="page02-global-insight">
+                  <strong>Global stray-animal visibility is uneven and concentrated in dense urban regions.</strong>
+                  <p>
+                    Hotspots reflect not only animal population density, but also public reporting visibility, rescue
+                    infrastructure, sterilization coverage, and local management capacity.
+                  </p>
+                </div>
+              </div>
+              <p className="page02-source-note page02-source-note--global">
                 2024 global benchmark: 362M homeless cats and dogs across 20 countries studied. The map indicates
                 relative visibility from public data and reports, not a census.
               </p>
@@ -207,7 +283,9 @@ export default function BackgroundResearchPage() {
             </div>
           </section>
         </aside>
-      </article>
+          </article>
+        </div>
+      </div>
     </main>
   );
 }
