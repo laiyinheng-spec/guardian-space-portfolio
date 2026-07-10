@@ -764,8 +764,192 @@
   line-height: 1.18;
 }
 
+.page03-stage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  min-height: 100dvh;
+  padding: 24px 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background:
+    linear-gradient(90deg, rgba(126, 66, 45, 0.035) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(126, 66, 45, 0.035) 1px, transparent 1px),
+    #f4eee6;
+  background-size: 42px 42px;
+}
+
+.page03-board-viewer {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.page03-board-scale-frame {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1680px;
+  height: 1096px;
+  margin-left: -840px;
+  transform: scale(var(--page03-scale, 1));
+  transform-origin: top center;
+}
+
+.page03-board {
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: minmax(0, 37.5fr) minmax(0, 62.5fr);
+  gap: 2.65cqw;
+  width: 1680px;
+  height: 1096px;
+  aspect-ratio: 1.533 / 1;
+  padding: 1.9cqw 1.9cqw 1.05cqw;
+  overflow: hidden;
+  color: var(--color-text-main);
+  font-family: var(--font-family-body);
+  background: var(--color-bg);
+  border: 1px solid #95877e;
+  box-shadow: 0 18px 58px rgba(66, 48, 36, 0.14);
+}
+
+.page03-left,
+.page03-right {
+  min-width: 0;
+  min-height: 0;
+}
+
+.page03-left {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.52cqw;
+}
+
+.page03-right {
+  display: grid;
+  grid-template-rows: auto minmax(0, auto) auto;
+  gap: 0.22cqw;
+  transform: translateX(1.35cqw);
+}
+
+.page03-page-header h1,
+.page03-page-header h2 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 3.08cqw;
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.page03-subtitle {
+  margin: 0.5cqw 0 0;
+  color: var(--color-accent);
+  font-size: 1.38cqw;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.page03-intro {
+  width: 100%;
+  margin: 0.58cqw 0 0;
+  color: var(--color-text-main);
+  font-size: 0.75cqw;
+  font-weight: 700;
+  line-height: 1.32;
+  text-wrap: pretty;
+}
+
+.page03-left-assets {
+  display: grid;
+  align-content: start;
+  gap: 0.34cqw;
+  min-height: 0;
+}
+
+.page03-module-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: left top;
+}
+
+.page03-interview-image,
+.page03-signals-image,
+.page03-analysis-image,
+.page03-journey-image {
+  max-width: 100%;
+}
+
+.page03-left-assets .page03-module-image {
+  width: 105.5%;
+  max-width: none;
+}
+
+.page03-analysis-image {
+  width: 98.5%;
+  margin-top: -0.08cqw;
+}
+
+.page03-journey-image {
+  width: 98.5%;
+}
+
+.page03-journey-section {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, auto);
+  align-content: start;
+  gap: 0.18cqw;
+  min-height: 0;
+  margin-top: 1.12cqw;
+}
+
+.page03-journey-section .page03-subtitle {
+  margin-top: -0.04cqw;
+}
+
+.page03-journey-note {
+  max-width: 98.5%;
+  margin: 0;
+  color: var(--color-text-main);
+  font-size: 0.75cqw;
+  font-weight: 700;
+  line-height: 1.32;
+  text-wrap: pretty;
+}
+
+.portfolio-home {
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+  background: var(--color-section);
+}
+
+.portfolio-home nav {
+  display: flex;
+  gap: 16px;
+  font-family: var(--font-family-body);
+}
+
+.portfolio-home a {
+  padding: 12px 16px;
+  color: var(--color-primary);
+  font-weight: 800;
+  text-decoration: none;
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+}
+
 @media (max-height: 560px), (max-width: 720px) {
   .page02-stage {
+    min-height: 100dvh;
+    padding: 24px 16px;
+  }
+
+  .page03-stage {
     min-height: 100dvh;
     padding: 24px 16px;
   }
@@ -815,6 +999,35 @@
   }
 
   .page02-board {
+    width: 1680px;
+    height: 1096px;
+    box-shadow: none;
+  }
+
+  .page03-stage {
+    display: block;
+    width: 1680px;
+    height: 1096px;
+    min-height: 0;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+  }
+
+  .page03-board-viewer {
+    width: 1680px !important;
+    height: 1096px !important;
+  }
+
+  .page03-board-scale-frame {
+    position: static;
+    width: 1680px;
+    height: 1096px;
+    margin-left: 0;
+    transform: none;
+  }
+
+  .page03-board {
     width: 1680px;
     height: 1096px;
     box-shadow: none;
