@@ -921,6 +921,26 @@
   text-wrap: pretty;
 }
 
+.page04-stage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100dvh;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #f7f1e8;
+}
+
+.page04-final-layout {
+  display: block;
+  width: 100%;
+  max-width: 4994px;
+  height: auto;
+  object-fit: contain;
+}
+
 .portfolio-home {
   display: grid;
   min-height: 100dvh;
@@ -952,6 +972,11 @@
   .page03-stage {
     min-height: 100dvh;
     padding: 24px 16px;
+  }
+
+  .page04-stage {
+    min-height: 100dvh;
+    padding: 0;
   }
 }
 
@@ -1031,5 +1056,24 @@
     width: 1680px;
     height: 1096px;
     box-shadow: none;
+  }
+
+  .page04-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1680px;
+    height: 1096px;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #fffdf8;
+  }
+
+  .page04-final-layout {
+    width: 1680px;
+    max-width: 1680px;
+    height: auto;
+    max-height: 1096px;
   }
 }
