@@ -1,6 +1,7 @@
 import BackgroundResearchPage from './pages/BackgroundResearchPage';
 import ConceptDevelopmentPage from './pages/ConceptDevelopmentPage';
 import Page05 from './pages/Page05';
+import Page06 from './pages/Page06';
 import PrimaryResearchPage from './pages/PrimaryResearchPage';
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
     return <Page05 />;
   }
 
+  if (path === '/page06') {
+    return <Page06 />;
+  }
+
   return (
     <main className="portfolio-home">
       <nav aria-label="Portfolio pages">
@@ -29,6 +34,7 @@ function App() {
         <a href="/page03">Page 03</a>
         <a href="/page04">Page 04</a>
         <a href="/page05">Page 05</a>
+        <a href="/page06">Page 06</a>
       </nav>
     </main>
   );
