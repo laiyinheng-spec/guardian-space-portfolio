@@ -37,6 +37,24 @@
   }
 }
 
+.portfolio-image-stage {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: visible;
+  background: #f7f1e8;
+}
+
+.portfolio-image-page {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+}
+
 .page02-stage {
   display: flex;
   align-items: flex-start;
@@ -966,6 +984,7 @@
   align-items: flex-start;
   justify-content: center;
   width: 100vw;
+  max-width: 100%;
   min-height: 100dvh;
   padding: 0;
   overflow-x: hidden;
@@ -974,11 +993,36 @@
 }
 
 .page06-final-layout {
+  flex: 0 0 auto;
   display: block;
-  width: 100%;
+  width: min(100vw, 4994px);
   max-width: 4994px;
   height: auto;
   object-fit: contain;
+  object-position: top center;
+}
+
+.page07-stage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100vw;
+  max-width: 100%;
+  min-height: 100dvh;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #f7f1e8;
+}
+
+.page07-final-layout {
+  flex: 0 0 auto;
+  display: block;
+  width: min(100vw, 4994px);
+  max-width: 4994px;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
 }
 
 .portfolio-home {
@@ -1025,6 +1069,11 @@
   }
 
   .page06-stage {
+    min-height: 100dvh;
+    padding: 0;
+  }
+
+  .page07-stage {
     min-height: 100dvh;
     padding: 0;
   }
@@ -1159,6 +1208,25 @@
   }
 
   .page06-final-layout {
+    width: 1680px;
+    max-width: 1680px;
+    height: auto;
+    max-height: 1096px;
+  }
+
+  .page07-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1680px;
+    height: 1096px;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #fffdf8;
+  }
+
+  .page07-final-layout {
     width: 1680px;
     max-width: 1680px;
     height: auto;

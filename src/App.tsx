@@ -1,43 +1,18 @@
-import BackgroundResearchPage from './pages/BackgroundResearchPage';
-import ConceptDevelopmentPage from './pages/ConceptDevelopmentPage';
-import Page05 from './pages/Page05';
-import Page06 from './pages/Page06';
-import PrimaryResearchPage from './pages/PrimaryResearchPage';
+import PortfolioImagePage from './pages/PortfolioImagePage';
+
+const portfolioPages = [
+  { pageNumber: '01', imageSrc: '/assets/page01/page01-cover.png' },
+  { pageNumber: '02', imageSrc: '/assets/page02/page02-background.png' },
+  { pageNumber: '03', imageSrc: '/assets/page03/page03-opportunity.png' },
+  { pageNumber: '04', imageSrc: '/assets/page04/page04-concept.png' },
+  { pageNumber: '05', imageSrc: '/assets/page05/page05-mr-system.png' },
+  { pageNumber: '06', imageSrc: '/assets/page06/page06-ui-interface.png' },
+  { pageNumber: '07', imageSrc: '/assets/page07/page07-interaction.png' },
+  { pageNumber: '08', imageSrc: '/assets/page08/8.png' },
+];
 
 function App() {
-  const path = window.location.pathname;
-
-  if (path === '/page02') {
-    return <BackgroundResearchPage />;
-  }
-
-  if (path === '/page03') {
-    return <PrimaryResearchPage />;
-  }
-
-  if (path === '/page04') {
-    return <ConceptDevelopmentPage />;
-  }
-
-  if (path === '/page05') {
-    return <Page05 />;
-  }
-
-  if (path === '/page06') {
-    return <Page06 />;
-  }
-
-  return (
-    <main className="portfolio-home">
-      <nav aria-label="Portfolio pages">
-        <a href="/page02">Page 02</a>
-        <a href="/page03">Page 03</a>
-        <a href="/page04">Page 04</a>
-        <a href="/page05">Page 05</a>
-        <a href="/page06">Page 06</a>
-      </nav>
-    </main>
-  );
+  return <PortfolioImagePage pages={portfolioPages} />;
 }
 
 export default App;
