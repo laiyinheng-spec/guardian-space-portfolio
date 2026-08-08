@@ -1,4 +1,4 @@
-const finalLayoutImage = '/assets/page06/page06-final.png';
+const finalLayoutImage = '/assets/page06/page06-final.png?v=20260727-003047';
 
 export default function Page06() {
   return (
