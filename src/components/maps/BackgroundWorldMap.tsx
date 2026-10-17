@@ -46,18 +46,19 @@ export default function BackgroundWorldMap({ imageSrc }: { imageSrc: string }) {
             style={{ left: `${(region.x - 1525) / 1330 * 100}%`, top: `${(region.y - 1515) / 1003 * 100}%` }}
             aria-label={`Select ${region.name}`} aria-pressed={selected === index}
             aria-controls={`${id}-explanation`} aria-describedby={hovered === index ? `${id}-name` : undefined}
-            data-muted={selected !== null && selected !== index}
+            data-muted={selected !== null && selected !== index} data-region={region.id}
             onPointerEnter={(event) => { if (event.pointerType === 'mouse') setHovered(index); }}
             onPointerLeave={(event) => { if (event.pointerType === 'mouse') setHovered(null); }}
             onFocus={() => setHovered(index)} onBlur={() => setHovered(null)}
             onClick={() => setSelected(index)}>
-            <motion.span className="world-map__ring" initial={false}
-              animate={selected === index ? { scale: 1.3, opacity: 1 }
-                : ready && !reduced ? { scale: [1, 1.3, 1], opacity: selected === null ? [0.3, 0.6, 0.3] : [0.15, 0.3, 0.15] }
-                  : { scale: 1, opacity: 0.35 }}
-              transition={selected === index || reduced || !ready ? { duration: reduced ? 0 : 0.2 }
-                : { duration: 3.8, repeat: Infinity, delay: 0.6 + index * 0.2, ease: 'easeInOut' }} />
-            <span className="world-map__dot" />
+            <span className="world-map__visual" data-ready={ready} aria-hidden="true">
+              <span className="world-map__ripple" />
+              <span className="world-map__ripple" />
+              <span className="world-map__ripple" />
+              <span className="world-map__ring" />
+              <span className="world-map__selected-ring" />
+              <span className="world-map__dot" />
+            </span>
           </button>)}
         </motion.div>
       </div>
