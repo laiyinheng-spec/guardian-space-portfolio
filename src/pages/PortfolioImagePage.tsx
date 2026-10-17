@@ -1,3 +1,4 @@
+import BackgroundWorldMap from '../components/maps/BackgroundWorldMap';
 import BackgroundChinaMap from '../components/maps/BackgroundChinaMap';
 import BackgroundTrendChart from '../components/charts/BackgroundTrendChart';
 
@@ -17,6 +18,7 @@ export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
             alt="Guardian Space portfolio page 02. Background and secondary research; interactive growth chart follows." />
           <BackgroundTrendChart />
           <BackgroundChinaMap imageSrc={page.imageSrc} />
+          <BackgroundWorldMap imageSrc={page.imageSrc} />
         </div>
       ) : (
         <img
