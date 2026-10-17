@@ -7,7 +7,7 @@ const portfolioPages = [
   { pageNumber: '04', imageSrc: '/assets/page04/page04-concept.png' },
   { pageNumber: '05', imageSrc: '/assets/page05/page05-mr-system.png' },
   { pageNumber: '06', imageSrc: '/assets/page06/page06-ui-interface.png' },
-  { pageNumber: '07', imageSrc: '/assets/page07/page07-interaction.png' },
+  { pageNumber: '07', imageSrc: '/assets/storyboard-update/storyboard-page.png' },
   { pageNumber: '08', imageSrc: '/assets/page08/8.png' },
 ];
 
