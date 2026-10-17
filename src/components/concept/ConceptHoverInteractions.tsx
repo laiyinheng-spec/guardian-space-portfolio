@@ -39,7 +39,19 @@ export default function ConceptHoverInteractions() {
   const active = state.mode !== 'idle';
   const leave = (kind: State['kind'], index: number, mode: 'hover' | 'focus') => setState((value) =>
     value.kind === kind && value.index === index && value.mode === mode ? { ...value, mode: 'idle' } : value);
+  // Native pointer events remain primary; mouse events also support desktop
+  // browsers/embedded previews that do not supply a reliable pointerType.
+  const mouseHover = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const native = event.nativeEvent as MouseEvent & { sourceCapabilities?: { firesTouchEvents?: boolean } };
+    return !native.sourceCapabilities?.firesTouchEvents && window.matchMedia('(any-hover: hover)').matches;
+  };
   const events = (kind: State['kind'], index: number) => ({
+    onMouseEnter: (event: React.MouseEvent<HTMLButtonElement>) => {
+      if (mouseHover(event)) setState({ kind, index, mode: 'hover' });
+    },
+    onMouseLeave: (event: React.MouseEvent<HTMLButtonElement>) => {
+      if (mouseHover(event)) leave(kind, index, 'hover');
+    },
     onPointerEnter: (event: React.PointerEvent<HTMLButtonElement>) => {
       if (event.pointerType === 'mouse') setState({ kind, index, mode: 'hover' });
     },
@@ -56,18 +68,18 @@ export default function ConceptHoverInteractions() {
   });
   return (
     <div className="concept-hover" data-active={active} data-kind={state.kind} data-index={state.index}>
-      <svg key={`${state.kind}-${state.index}`} className="concept-hover__drawing" viewBox="0 0 4994 3257" aria-hidden="true">
+      <svg className="concept-hover__drawing" viewBox="0 0 4994 3257" aria-hidden="true">
         <defs>
           <radialGradient id={`${id}-companion`}>
-            <stop offset="0" stopColor="#ffb14f" stopOpacity="0.3" />
-            <stop offset="0.6" stopColor="#ffc46b" stopOpacity="0.16" />
+            <stop offset="0" stopColor="#ffb14f" stopOpacity="0.46" />
+            <stop offset="0.6" stopColor="#ffc46b" stopOpacity="0.25" />
             <stop offset="1" stopColor="#ffc46b" stopOpacity="0" />
           </radialGradient>
         </defs>
         {state.kind === 'row' ? <g className="concept-hover__comparison">
           <path className="concept-hover__row-line" d={comparisonLine(state.index)} />
           {columns.map((cx, index) => <circle key={cx} className="concept-hover__dot-ring"
-            cx={cx} cy={rows[state.index].y} r={rows[state.index].radii[index] + 6}
+            cx={cx} cy={rows[state.index].y} r={rows[state.index].radii[index] + 10}
             style={{ '--outer-radius-narrow': `${rows[state.index].radii[index] + 22}px` } as CSSProperties} />)}
         </g> : <g className="concept-hover__sketch">
           <path className="concept-hover__leader" d={callouts[state.index].leader} />
