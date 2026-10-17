@@ -1,3 +1,4 @@
+import ConceptHoverInteractions from '../components/concept/ConceptHoverInteractions';
 import TrustProofEvidence from '../components/research/TrustProofEvidence';
 import BackgroundWorldMap from '../components/maps/BackgroundWorldMap';
 import BackgroundChinaMap from '../components/maps/BackgroundChinaMap';
@@ -25,6 +26,11 @@ export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
         <div className="portfolio-research-page" key={page.pageNumber}>
           <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 03: Primary Research and User Analysis" />
           <TrustProofEvidence imageSrc={page.imageSrc} />
+        </div>
+      ) : page.pageNumber === '04' ? (
+        <div className="portfolio-concept-page" key={page.pageNumber}>
+          <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 04: Concept Development" />
+          <ConceptHoverInteractions />
         </div>
       ) : (
         <img
