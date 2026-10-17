@@ -1,3 +1,4 @@
+import PrototypeSystemHover from '../components/prototype-system/PrototypeSystemHover';
 import UserFlowInteractions from '../components/user-flow/UserFlowInteractions';
 import MrSelectionHover from '../components/mr-direction/MrSelectionHover';
 import ConceptHoverInteractions from '../components/concept/ConceptHoverInteractions';
@@ -43,6 +44,11 @@ export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
         <div className="portfolio-user-flow-page" key={page.pageNumber}>
           <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 06: User Flow and UI Interface" />
           <UserFlowInteractions />
+        </div>
+      ) : page.pageNumber === '08' ? (
+        <div className="portfolio-prototype-system-page" key={page.pageNumber}>
+          <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 08: Prototype System, Interaction Showcase and Development" />
+          <PrototypeSystemHover />
         </div>
       ) : (
         <img

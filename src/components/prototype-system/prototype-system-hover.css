@@ -1,0 +1,15 @@
+.portfolio-prototype-system-page { position: relative; width: 100%; isolation: isolate; container-type: inline-size; }
+.portfolio-prototype-system-page > .portfolio-image-page { position: relative; z-index: 0; }
+.prototype-system-hover { position: absolute; inset: 0; z-index: 1; pointer-events: none; mix-blend-mode: multiply; }
+.prototype-system-hover__drawing { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.prototype-system-hover__drawing > g { opacity: 0; transition: opacity 200ms ease; }
+.prototype-system-hover__drawing > g[data-active='true'] { opacity: 1; }
+.prototype-system-hover__image-edge, .prototype-system-hover__arrow,
+.prototype-system-hover__arrowhead, .prototype-system-hover__behavior-frame { fill: none; stroke: #cc5814; stroke-width: clamp(1.4px,.17cqw,2.5px); vector-effect: non-scaling-stroke; }
+.prototype-system-hover__arrow, .prototype-system-hover__behavior-frame { stroke-dasharray: 7 8.5; }
+.prototype-system-hover__arrowhead { stroke-linecap: round; stroke-linejoin: round; }
+.prototype-system-hover__marker { fill: #ffc46b; fill-opacity: .68; }
+.prototype-system-hover__trigger { position: absolute; z-index: 2; padding: 0; border: 0; background: transparent; border-radius: 4px; cursor: pointer; pointer-events: auto; }
+.prototype-system-hover__trigger:focus { outline: none; }
+.prototype-system-hover__trigger:focus-visible { outline: 2px dashed #ba4d13; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .prototype-system-hover__drawing > g { transition: none; } }

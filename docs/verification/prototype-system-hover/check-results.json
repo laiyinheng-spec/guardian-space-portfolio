@@ -1,0 +1,71 @@
+[
+  {
+    "width": 1440,
+    "threeGroups": true,
+    "wholeTrigger": true,
+    "keyboard": true,
+    "rapidSwitch": true,
+    "leave": true,
+    "height": 939.140625,
+    "ratio": true,
+    "nextGap": 0,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 1024,
+    "threeGroups": true,
+    "wholeTrigger": true,
+    "keyboard": true,
+    "rapidSwitch": true,
+    "leave": true,
+    "height": 667.828125,
+    "ratio": true,
+    "nextGap": 0,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "threeGroups": true,
+    "wholeTrigger": true,
+    "keyboard": true,
+    "rapidSwitch": true,
+    "leave": true,
+    "height": 500.875,
+    "ratio": true,
+    "nextGap": 0,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "threeGroups": true,
+    "wholeTrigger": true,
+    "keyboard": true,
+    "rapidSwitch": true,
+    "leave": true,
+    "height": 254.34375,
+    "ratio": true,
+    "nextGap": 0,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "threeGroups": true,
+    "wholeTrigger": true,
+    "keyboard": true,
+    "rapidSwitch": true,
+    "leave": true,
+    "height": 208.6875,
+    "ratio": true,
+    "nextGap": 0,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "touchStatic": true,
+    "reducedMotion": true
+  }
+]
