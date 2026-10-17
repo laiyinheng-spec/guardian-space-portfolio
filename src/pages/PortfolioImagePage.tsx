@@ -1,3 +1,4 @@
+import MrSelectionHover from '../components/mr-direction/MrSelectionHover';
 import ConceptHoverInteractions from '../components/concept/ConceptHoverInteractions';
 import TrustProofEvidence from '../components/research/TrustProofEvidence';
 import BackgroundWorldMap from '../components/maps/BackgroundWorldMap';
@@ -31,6 +32,11 @@ export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
         <div className="portfolio-concept-page" key={page.pageNumber}>
           <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 04: Concept Development" />
           <ConceptHoverInteractions />
+        </div>
+      ) : page.pageNumber === '05' ? (
+        <div className="portfolio-mr-direction-page" key={page.pageNumber}>
+          <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 05: Why MR and Project Overview" />
+          <MrSelectionHover />
         </div>
       ) : (
         <img
