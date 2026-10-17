@@ -7,13 +7,13 @@ import './background-china-map.css';
 // These are image coordinates, not locations inferred from administrative outlines.
 const cities = [
   { id: 'beijing', name: 'Beijing', x: 744, y: 1953, outline: 'beijing-outline.png',
-    description: 'Beijing is a municipality in northern China. It is one of the example cities marked in the original map.' },
+    description: 'Highlighted as a visibility hotspot in this map. The darker shading draws attention to reported stray-animal issues; it does not establish the largest stray population.' },
   { id: 'shanghai', name: 'Shanghai', x: 839, y: 2139, outline: 'shanghai-outline.png',
-    description: 'Shanghai is a municipality on China’s eastern coast. It is one of the example cities marked in the original map.' },
+    description: 'Highlighted within the map’s coastal urban context. Visibility in public reports should be distinguished from the actual number of stray animals.' },
   { id: 'chengdu', name: 'Chengdu · Sichuan', x: 518, y: 2155, outline: 'sichuan-outline.png',
-    description: 'Chengdu is a city in Sichuan, southwestern China. It is one of the example cities marked in the original map.' },
+    description: 'An inland hotspot highlighted in this overview, extending the map’s focus beyond coastal cities. Its lighter shading does not establish a smaller stray population.' },
   { id: 'guangzhou', name: 'Guangzhou · Guangdong', x: 705, y: 2282, outline: 'guangdong-outline.png',
-    description: 'Guangzhou is a city in Guangdong, southern China. It is one of the example cities marked in the original map.' },
+    description: 'Highlighted within southern China’s coastal urban context. The emphasis concerns the visibility of stray-animal issues, rather than a measured provincial total.' },
 ];
 
 export default function BackgroundChinaMap({ imageSrc }: { imageSrc: string }) {
@@ -80,7 +80,7 @@ export default function BackgroundChinaMap({ imageSrc }: { imageSrc: string }) {
 
   const city = active === null ? null : cities[active];
   return (
-    <div ref={map} className="china-map" role="group" aria-label="China map: example cities"
+    <div ref={map} className="china-map" role="group" aria-label="China map: illustrative stray-animal visibility"
       onClick={(event) => { if (!(event.target as Element).closest('button')) close(); }}>
       {/* Crop the existing map image, rather than introduce a second, differently scaled map.
           The fixed opaque mask prevents the old map appearing during entry animation. */}
@@ -104,6 +104,7 @@ export default function BackgroundChinaMap({ imageSrc }: { imageSrc: string }) {
             transition={ready && !reduced ? { duration: 2.8, repeat: Infinity, delay: 0.65 + index * 0.18, ease: 'easeOut' } : { duration: 0 }} />
           <span className="china-map__dot" />
         </button>)}
+        <p className="china-map__reading-note">Shading indicates illustrative visibility emphasis, not measured stray-animal counts or a statistical ranking.</p>
       </motion.div>
       {city && createPortal(<div ref={card} id={id} role="region" aria-label={`${city.name} map information`}
         className="china-map-card" style={position} onPointerEnter={clearTimer} onPointerLeave={leave}
@@ -112,7 +113,6 @@ export default function BackgroundChinaMap({ imageSrc }: { imageSrc: string }) {
         <div className="china-map-card__copy">
           <h3>{city.name}</h3>
           <p id={`${id}-description`}>{city.description}</p>
-          <small>Illustrative outline; not a precise surveyed boundary. No city-level population estimate is implied.</small>
           <span className="china-map-card__status">{pinned ? 'Pinned · tap outside or press Escape to close.' : 'Click the marker to keep this card open.'}</span>
         </div>
         <button type="button" className="china-map-card__close" onClick={() => {
