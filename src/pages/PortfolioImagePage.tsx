@@ -1,3 +1,4 @@
+import TrustProofEvidence from '../components/research/TrustProofEvidence';
 import BackgroundWorldMap from '../components/maps/BackgroundWorldMap';
 import BackgroundChinaMap from '../components/maps/BackgroundChinaMap';
 import BackgroundTrendChart from '../components/charts/BackgroundTrendChart';
@@ -19,6 +20,11 @@ export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
           <BackgroundTrendChart />
           <BackgroundChinaMap imageSrc={page.imageSrc} />
           <BackgroundWorldMap imageSrc={page.imageSrc} />
+        </div>
+      ) : page.pageNumber === '03' ? (
+        <div className="portfolio-research-page" key={page.pageNumber}>
+          <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 03: Primary Research and User Analysis" />
+          <TrustProofEvidence imageSrc={page.imageSrc} />
         </div>
       ) : (
         <img
