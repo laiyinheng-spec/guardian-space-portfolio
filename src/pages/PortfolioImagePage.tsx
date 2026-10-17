@@ -1,3 +1,4 @@
+import InteractiveJourneyPage from '../components/research/InteractiveJourneyPage';
 import BackgroundWorldMap from '../components/maps/BackgroundWorldMap';
 import BackgroundChinaMap from '../components/maps/BackgroundChinaMap';
 import BackgroundTrendChart from '../components/charts/BackgroundTrendChart';
@@ -20,6 +21,8 @@ export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
           <BackgroundChinaMap imageSrc={page.imageSrc} />
           <BackgroundWorldMap imageSrc={page.imageSrc} />
         </div>
+      ) : page.pageNumber === '03' ? (
+        <InteractiveJourneyPage key={page.pageNumber} imageSrc={page.imageSrc} />
       ) : (
         <img
           className="portfolio-image-page"
