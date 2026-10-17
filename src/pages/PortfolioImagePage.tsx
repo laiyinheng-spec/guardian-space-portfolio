@@ -1,3 +1,4 @@
+import UserFlowInteractions from '../components/user-flow/UserFlowInteractions';
 import MrSelectionHover from '../components/mr-direction/MrSelectionHover';
 import ConceptHoverInteractions from '../components/concept/ConceptHoverInteractions';
 import TrustProofEvidence from '../components/research/TrustProofEvidence';
@@ -37,6 +38,11 @@ export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
         <div className="portfolio-mr-direction-page" key={page.pageNumber}>
           <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 05: Why MR and Project Overview" />
           <MrSelectionHover />
+        </div>
+      ) : page.pageNumber === '06' ? (
+        <div className="portfolio-user-flow-page" key={page.pageNumber}>
+          <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 06: User Flow and UI Interface" />
+          <UserFlowInteractions />
         </div>
       ) : (
         <img

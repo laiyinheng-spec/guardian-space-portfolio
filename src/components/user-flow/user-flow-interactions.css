@@ -1,0 +1,26 @@
+.portfolio-user-flow-page { position: relative; width: 100%; isolation: isolate; container-type: inline-size; }
+.portfolio-user-flow-page > .portfolio-image-page { position: relative; z-index: 0; }
+.user-flow { position: absolute; inset: 0; pointer-events: none; }
+.user-flow__viewport { position: absolute; left: 3%; top: 16%; width: 45%; height: 80%; pointer-events: none; }
+.user-flow__highlights, .user-flow__guide { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.user-flow__highlights { z-index: 1; mix-blend-mode: multiply; }
+.user-flow__highlights > g, .user-flow__ui-ring, .user-flow__endpoint { opacity: 0; transition: opacity 200ms ease; }
+.user-flow__highlights > g[data-active='true'], .user-flow__ui-ring[data-active='true'], .user-flow__endpoint[data-active='true'] { opacity: 1; }
+.user-flow__icon-ring, .user-flow__ui-ring, .user-flow__endpoint { fill: none; stroke: #e56c20; stroke-width: clamp(1.3px,.17cqw,2.5px); vector-effect: non-scaling-stroke; }
+.user-flow__ui-ring { filter: drop-shadow(0 0 3px #ffb66c); }
+.user-flow__title-marker { fill: #ffc46b; fill-opacity: .62; }
+.user-flow__highlights > g[data-auto='true'] .user-flow__icon-ring { transform-box: fill-box; transform-origin: center; animation: user-flow-node 410ms ease-out both; }
+.user-flow__guide { z-index: 2; }
+.user-flow__traveller { visibility: hidden; }
+.user-flow[data-running='true'] .user-flow__traveller { visibility: visible; }
+.user-flow__tail { fill: none; stroke: #ffd18a; stroke-width: 4px; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.user-flow__head { filter: drop-shadow(0 0 3px #ff8b28); }
+.user-flow__head circle { fill: #ff8a1c; stroke: #fff4dc; stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
+.user-flow__head .user-flow__core { fill: #fff9e9; stroke: none; }
+.user-flow__trigger { position: absolute; z-index: 3; padding: 0; border: 0; background: transparent; pointer-events: auto; cursor: pointer; border-radius: 5px; }
+.user-flow__trigger:focus { outline: none; }
+.user-flow__trigger:focus-visible { outline: 2px dashed #c35b20; outline-offset: 2px; }
+@keyframes user-flow-node { from { transform: scale(.97); } 55% { transform: scale(1.06); } to { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .user-flow__highlights > g, .user-flow__ui-ring, .user-flow__endpoint { transition: none; } .user-flow__highlights > g[data-auto='true'] .user-flow__icon-ring { animation: none; } }
+
+.user-flow:not([data-running='true']) .user-flow__highlights > g[data-auto='true'] .user-flow__icon-ring { animation-play-state: paused; }
