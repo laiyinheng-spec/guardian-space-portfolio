@@ -37,17 +37,23 @@ export default function TrustProofEvidence({ imageSrc }: { imageSrc: string }) {
     <div className="trust-evidence" data-active={active}>
       <svg className="trust-evidence__quotes" viewBox="0 0 4994 3257" aria-hidden="true">
         <defs>
-          <linearGradient id={`${id}-ink`} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#ffae50" stopOpacity="0.16" />
-            <stop offset="0.65" stopColor="#ffae50" stopOpacity="0.34" />
-            <stop offset="1" stopColor="#ffae50" stopOpacity="0.18" />
-          </linearGradient>
+          {quoteLines.map((line, index) => <clipPath key={index} id={`${id}-line-${index}`}>
+            <rect className="trust-evidence__reveal" {...line} />
+          </clipPath>)}
         </defs>
-        {quoteLines.map((line) => <rect key={`${line.x}-${line.y}`} {...line} rx="5" fill={`url(#${id}-ink)`} />)}
+        {quoteLines.map((line, index) => <rect className="trust-evidence__ink" key={`${line.x}-${line.y}`}
+          {...line} rx="4" clipPath={`url(#${id}-line-${index})`} />)}
+        <path className="trust-evidence__locator" d="M 248 1124 V 1187 M 244 2334 V 2421" />
       </svg>
       <svg className="trust-evidence__nodes" viewBox="0 0 4994 3257" aria-hidden="true">
-        <ellipse cx="4340" cy="495" rx="126" ry="119" />
-        <ellipse cx="2800" cy="1113" rx="116" ry="117" />
+        <g className="trust-evidence__node">
+          <ellipse className="trust-evidence__node-soft" cx="4340" cy="495" rx="138" ry="131" />
+          <ellipse className="trust-evidence__node-main" cx="4340" cy="495" rx="126" ry="119" />
+        </g>
+        <g className="trust-evidence__node">
+          <ellipse className="trust-evidence__node-soft" cx="2800" cy="1113" rx="128" ry="129" />
+          <ellipse className="trust-evidence__node-main" cx="2800" cy="1113" rx="116" ry="117" />
+        </g>
       </svg>
       {/* A stationary mask clears only the padded theme-card crop. Its image
           moves 2px without exposing a second copy of the original card below. */}
