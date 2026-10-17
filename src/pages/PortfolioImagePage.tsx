@@ -1,3 +1,4 @@
+import InteractionHintBadges from '../components/hints/InteractionHintBadges';
 import PrototypeSystemHover from '../components/prototype-system/PrototypeSystemHover';
 import UserFlowInteractions from '../components/user-flow/UserFlowInteractions';
 import MrSelectionHover from '../components/mr-direction/MrSelectionHover';
@@ -24,11 +25,13 @@ export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
           <BackgroundTrendChart />
           <BackgroundChinaMap imageSrc={page.imageSrc} />
           <BackgroundWorldMap imageSrc={page.imageSrc} />
+          <InteractionHintBadges page="background" />
         </div>
       ) : page.pageNumber === '03' ? (
         <div className="portfolio-research-page" key={page.pageNumber}>
           <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 03: Primary Research and User Analysis" />
           <TrustProofEvidence imageSrc={page.imageSrc} />
+          <InteractionHintBadges page="research" />
         </div>
       ) : page.pageNumber === '04' ? (
         <div className="portfolio-concept-page" key={page.pageNumber}>

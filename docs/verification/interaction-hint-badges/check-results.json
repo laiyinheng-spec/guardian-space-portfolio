@@ -1,0 +1,232 @@
+[
+  {
+    "viewport": 1440,
+    "positions": [
+      {
+        "src": "/assets/interaction-hints/hover-to-explore.png",
+        "x": 0.023958333333333335,
+        "y": 0.49782879960069876,
+        "width": 0.06905381944444444,
+        "aspect": 2.2471751412429377,
+        "natural": 2.2467532467532467,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      },
+      {
+        "src": "/assets/interaction-hints/click-to-explore.png",
+        "x": 0.3009114583333333,
+        "y": 0.4642708593295067,
+        "width": 0.06483289930555555,
+        "aspect": 2.659101023587005,
+        "natural": 2.658333333333333,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      },
+      {
+        "src": "/assets/interaction-hints/hover-to-connect.png",
+        "x": 0.3939344618055556,
+        "y": 0.34522918226437066,
+        "width": 0.10218098958333334,
+        "aspect": 2.6311818943839063,
+        "natural": 2.6307692307692307,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      }
+    ],
+    "chinaCards": 4,
+    "worldRegions": 3,
+    "overview": true,
+    "chartTooltip": true,
+    "researchThemes": 4,
+    "noHeightChange": true,
+    "noOverflow": true,
+    "errors": []
+  },
+  {
+    "viewport": 1419,
+    "positions": [
+      {
+        "src": "/assets/interaction-hints/hover-to-explore.png",
+        "x": 0.023960535588442564,
+        "y": 0.49782197609238876,
+        "width": 0.06906272022551092,
+        "aspect": 2.2472232174847724,
+        "natural": 2.2467532467532467,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      },
+      {
+        "src": "/assets/interaction-hints/click-to-explore.png",
+        "x": 0.30091613812544044,
+        "y": 0.46427365435267104,
+        "width": 0.06482337914023961,
+        "aspect": 2.658988256549232,
+        "natural": 2.658333333333333,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      },
+      {
+        "src": "/assets/interaction-hints/hover-to-connect.png",
+        "x": 0.3939283826638478,
+        "y": 0.34522523130951577,
+        "width": 0.10217362579281183,
+        "aspect": 2.630847745959739,
+        "natural": 2.6307692307692307,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      }
+    ],
+    "chinaCards": 4,
+    "worldRegions": 3,
+    "overview": true,
+    "chartTooltip": true,
+    "researchThemes": 4,
+    "noHeightChange": true,
+    "noOverflow": true,
+    "errors": []
+  },
+  {
+    "viewport": 768,
+    "positions": [
+      {
+        "src": "/assets/interaction-hints/hover-to-explore.png",
+        "x": 0.023946126302083332,
+        "y": 0.4978163214374844,
+        "width": 0.06905110677083333,
+        "aspect": 2.247682119205298,
+        "natural": 2.2467532467532467,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      },
+      {
+        "src": "/assets/interaction-hints/click-to-explore.png",
+        "x": 0.3009033203125,
+        "y": 0.464281257798852,
+        "width": 0.0648193359375,
+        "aspect": 2.659432387312187,
+        "natural": 2.658333333333333,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      },
+      {
+        "src": "/assets/interaction-hints/hover-to-connect.png",
+        "x": 0.3939208984375,
+        "y": 0.34520838532568004,
+        "width": 0.1021728515625,
+        "aspect": 2.6320754716981134,
+        "natural": 2.6307692307692307,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      }
+    ],
+    "chinaCards": 4,
+    "worldRegions": 3,
+    "overview": true,
+    "chartTooltip": true,
+    "researchThemes": 4,
+    "noHeightChange": true,
+    "noOverflow": true,
+    "errors": []
+  },
+  {
+    "viewport": 390,
+    "positions": [
+      {
+        "src": "/assets/interaction-hints/hover-to-explore.png",
+        "x": 0.023958333333333335,
+        "y": 0.49778842609657203,
+        "width": 0.06903044871794872,
+        "aspect": 2.2493472584856398,
+        "natural": 2.2467532467532467,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      },
+      {
+        "src": "/assets/interaction-hints/click-to-explore.png",
+        "x": 0.30088141025641024,
+        "y": 0.46424622189458165,
+        "width": 0.06482371794871795,
+        "aspect": 2.661184210526316,
+        "natural": 2.658333333333333,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      },
+      {
+        "src": "/assets/interaction-hints/hover-to-connect.png",
+        "x": 0.3939102564102564,
+        "y": 0.3451898267600442,
+        "width": 0.10216346153846154,
+        "aspect": 2.6315789473684212,
+        "natural": 2.6307692307692307,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      }
+    ],
+    "chinaCards": 4,
+    "worldRegions": 3,
+    "overview": true,
+    "chartTooltip": true,
+    "researchThemes": 4,
+    "noHeightChange": true,
+    "noOverflow": true,
+    "errors": []
+  },
+  {
+    "viewport": 320,
+    "positions": [
+      {
+        "src": "/assets/interaction-hints/hover-to-explore.png",
+        "x": 0.02392578125,
+        "y": 0.49782869122491763,
+        "width": 0.06904296875,
+        "aspect": 2.248012718600954,
+        "natural": 2.2467532467532467,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      },
+      {
+        "src": "/assets/interaction-hints/click-to-explore.png",
+        "x": 0.30087890625,
+        "y": 0.4642857142857143,
+        "width": 0.064794921875,
+        "aspect": 2.659318637274549,
+        "natural": 2.658333333333333,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      },
+      {
+        "src": "/assets/interaction-hints/hover-to-connect.png",
+        "x": 0.393896484375,
+        "y": 0.3451632225217131,
+        "width": 0.1021484375,
+        "aspect": 2.631446540880503,
+        "natural": 2.6307692307692307,
+        "pointer": "none",
+        "tabIndex": -1,
+        "inside": true
+      }
+    ],
+    "chinaCards": 4,
+    "worldRegions": 3,
+    "overview": true,
+    "chartTooltip": true,
+    "researchThemes": 4,
+    "noHeightChange": true,
+    "noOverflow": true,
+    "errors": []
+  }
+]

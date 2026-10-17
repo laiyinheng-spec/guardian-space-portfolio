@@ -1,0 +1,7 @@
+{
+  "chinaTap": true,
+  "worldTapAndOverview": true,
+  "researchTapAndCancel": true,
+  "noNewControls": true,
+  "noBadgeHit": true
+}
