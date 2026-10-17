@@ -1,3 +1,5 @@
+import BackgroundTrendChart from '../components/charts/BackgroundTrendChart';
+
 type PortfolioImagePageProps = {
   pages: Array<{
     imageSrc: string;
@@ -8,7 +10,13 @@ type PortfolioImagePageProps = {
 export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
   return (
     <main className="portfolio-image-stage" aria-label="Guardian Space portfolio">
-      {pages.map((page) => (
+      {pages.map((page) => page.pageNumber === '02' ? (
+        <div className="portfolio-background-page" key={page.pageNumber} id="background">
+          <img className="portfolio-image-page" src={page.imageSrc}
+            alt="Guardian Space portfolio page 02. Background and secondary research; interactive growth chart follows." />
+          <BackgroundTrendChart />
+        </div>
+      ) : (
         <img
           className="portfolio-image-page"
           key={page.pageNumber}
