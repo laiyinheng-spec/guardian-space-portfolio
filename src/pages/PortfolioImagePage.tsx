@@ -70,7 +70,7 @@ export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
           <a
             className="portfolio-prototype-cta__button"
             id="mr-prototype-entry"
-            href="./mr-prototype/index.html"
+            href="https://guardian-space-prototype.vercel.app/"
             onClick={openPrototype}
             target="_blank"
             rel="opener"
