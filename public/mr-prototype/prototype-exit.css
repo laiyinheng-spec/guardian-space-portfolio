@@ -1,0 +1,7 @@
+#prototype-exit-shell { position: fixed; inset: 16px 16px auto auto; margin: 0; padding: 0; border: 0; background: transparent; overflow: visible; z-index: 2147483647; }
+#prototype-exit-shell::backdrop { pointer-events: none; }
+#prototype-close { display: block; padding: 10px 16px; border: 1px solid #e8d9cc; border-radius: 10px; background: #fffaf4; color: #653d2c; font: 600 16px/1.3 Arial,sans-serif; box-shadow: 0 2px 12px #0003; cursor: pointer; }
+#prototype-close:focus-visible { outline: 3px solid #ec7b32; outline-offset: 3px; }
+/* Reserve only the new exit control's vertical space; keep the original
+   tracking controls usable rather than placing Close over Interact. */
+.gesture-room .top-actions { top: max(4%, 76px); }

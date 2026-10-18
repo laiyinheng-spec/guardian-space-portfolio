@@ -1,4 +1,4 @@
-import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState, type MouseEvent, type PointerEvent as ReactPointerEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import './background-trend.css';
@@ -24,20 +24,31 @@ const format = (value: number) => Number(value.toFixed(1)).toString();
 export default function BackgroundTrendChart() {
   const root = useRef<HTMLDivElement>(null);
   const tooltip = useRef<HTMLDivElement>(null);
-  const dismissTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const svg = useRef<SVGSVGElement>(null);
+  const input = useRef<'mouse' | 'keyboard' | 'touch' | null>(null);
   const [active, setActive] = useState<number | null>(null);
   const [position, setPosition] = useState({ left: 8, top: 8 });
   const visible = useInView(root, { once: true, amount: 0.1 });
   const reduced = useReducedMotion();
   const id = useId().replace(/:/g, '');
   const tipId = `${id}-tooltip`;
-  const clearDismiss = () => clearTimeout(dismissTimer.current);
-  const select = (index: number) => { clearDismiss(); setActive(index); };
-  const dismiss = () => {
-    clearDismiss();
-    dismissTimer.current = setTimeout(() => {
-      if (!root.current?.contains(document.activeElement)) setActive(null);
-    }, 140);
+  const select = (index: number, mode: 'mouse' | 'keyboard' | 'touch') => {
+    input.current = mode;
+    setActive(index);
+  };
+  const clear = () => { input.current = null; setActive(null); };
+  const leaveMouse = () => { if (input.current === 'mouse') clear(); };
+  const move = (event: ReactPointerEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>) => {
+    if ('pointerType' in event && event.pointerType !== 'mouse') return;
+    const native = event.nativeEvent as globalThis.MouseEvent & { sourceCapabilities?: { firesTouchEvents?: boolean } };
+    if (native.sourceCapabilities?.firesTouchEvents) return;
+    const matrix = svg.current?.getScreenCTM();
+    if (!matrix || !svg.current) return;
+    const point = svg.current.createSVGPoint();
+    point.x = event.clientX; point.y = event.clientY;
+    const local = point.matrixTransform(matrix.inverse());
+    if (local.x < 92 || local.x > 1265 || local.y < 158 || local.y > 648) { leaveMouse(); return; }
+    select(Math.max(0, Math.min(5, Math.round((local.x - x(0)) / (x(1) - x(0))))), 'mouse');
   };
 
   useLayoutEffect(() => {
@@ -63,13 +74,12 @@ export default function BackgroundTrendChart() {
 
   useEffect(() => {
     const outside = (event: PointerEvent) => {
-      if (!root.current?.contains(event.target as Node) && !tooltip.current?.contains(event.target as Node)) setActive(null);
+      if (!root.current?.contains(event.target as Node) && !tooltip.current?.contains(event.target as Node)) clear();
     };
-    const escape = (event: KeyboardEvent) => { if (event.key === 'Escape') setActive(null); };
+    const escape = (event: KeyboardEvent) => { if (event.key === 'Escape') clear(); };
     document.addEventListener('pointerdown', outside);
     document.addEventListener('keydown', escape);
     return () => {
-      clearDismiss();
       document.removeEventListener('pointerdown', outside);
       document.removeEventListener('keydown', escape);
     };
@@ -78,8 +88,9 @@ export default function BackgroundTrendChart() {
   const point = active === null ? null : backgroundTrend[active];
   const ready = visible || !!reduced;
   return (
-    <div ref={root} className="background-trend" role="group" aria-label="Global Stray Animal Growth Trend. Focus or tap a year for values in million.">
-      <motion.svg viewBox="0 0 1300 760" className="background-trend__svg" aria-hidden="true"
+    <div ref={root} className="background-trend" role="group" aria-label="Global Stray Animal Growth Trend. Focus or tap a year for values in million."
+      onPointerMove={move} onMouseMove={move} onPointerLeave={leaveMouse} onMouseLeave={leaveMouse}>
+      <motion.svg ref={svg} viewBox="0 0 1300 760" className="background-trend__svg" aria-hidden="true"
         initial={false} animate={{ opacity: ready ? 1 : 0, y: ready ? 0 : 8 }}
         transition={{ duration: reduced ? 0 : 0.55 }}>
         <defs>
@@ -137,9 +148,9 @@ export default function BackgroundTrendChart() {
         {backgroundTrend.map((p, index) => <button key={p.year} type="button"
           className="background-trend__year" aria-label={`${p.year}: China ${format(p.china)} million; Global benchmark ${format(p.global)} million; ${p.nature}`}
           aria-describedby={active === index ? tipId : undefined}
-          onPointerEnter={(event) => { if (event.pointerType === 'mouse') select(index); }}
-          onPointerLeave={(event) => { if (event.pointerType === 'mouse') dismiss(); }}
-          onFocus={() => select(index)} onBlur={dismiss} onClick={() => select(index)}
+          onFocus={(event) => { if (event.currentTarget.matches(':focus-visible')) select(index, 'keyboard'); }}
+          onBlur={() => { if (input.current === 'keyboard') clear(); }}
+          onClick={(event) => select(index, event.detail === 0 ? 'keyboard' : 'touch')}
           onKeyDown={(event) => {
             if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
               event.preventDefault();
@@ -149,7 +160,7 @@ export default function BackgroundTrendChart() {
           }} />)}
       </div>
       {point && createPortal(<div ref={tooltip} id={tipId} role="tooltip" className="background-trend-tooltip"
-        style={position} onPointerEnter={clearDismiss} onPointerLeave={dismiss}>
+        style={position}>
         <strong>{point.year} <span>· {point.nature}</span></strong>
         <div><i className="background-trend-tooltip__china" />China <b>{format(point.china)} million</b></div>
         <div><i className="background-trend-tooltip__global" />Global benchmark <b>{format(point.global)} million</b></div>

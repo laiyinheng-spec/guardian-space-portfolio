@@ -1,0 +1,23 @@
+{
+  "controlledDetectorWithRealBrowserFakeWebcam": {
+    "before": {
+      "tracks": [
+        "live"
+      ],
+      "frames": 2
+    },
+    "after": {
+      "tracks": [
+        "ended"
+      ],
+      "frames": 0,
+      "video": null,
+      "detectorsClosed": 1
+    },
+    "dogFallback": true
+  },
+  "lateCameraStopped": true,
+  "deniedExit": true,
+  "lateDetectorClosed": true,
+  "reenterTracking": true
+}

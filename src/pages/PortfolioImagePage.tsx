@@ -1,3 +1,4 @@
+import usePrototypeNavigation from '../hooks/usePrototypeNavigation';
 import InteractionHintBadges from '../components/hints/InteractionHintBadges';
 import PrototypeSystemHover from '../components/prototype-system/PrototypeSystemHover';
 import UserFlowInteractions from '../components/user-flow/UserFlowInteractions';
@@ -16,6 +17,7 @@ type PortfolioImagePageProps = {
 };
 
 export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
+  const openPrototype = usePrototypeNavigation();
   return (
     <main className="portfolio-image-stage" aria-label="Guardian Space portfolio">
       {pages.map((page) => page.pageNumber === '02' ? (
@@ -67,9 +69,11 @@ export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
           <h1 id="prototype-cta-title">Experience Guardian Space</h1>
           <a
             className="portfolio-prototype-cta__button"
-            href="https://guardian-space-prototype.vercel.app"
+            id="mr-prototype-entry"
+            href="./mr-prototype/index.html"
+            onClick={openPrototype}
             target="_blank"
-            rel="noreferrer"
+            rel="opener"
           >
             <span>Enter MR Prototype</span>
             <span aria-hidden="true">-&gt;</span>
