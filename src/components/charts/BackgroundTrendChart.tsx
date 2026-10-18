@@ -1,4 +1,4 @@
-import { useEffect, useId, useLayoutEffect, useRef, useState, type MouseEvent, type PointerEvent as ReactPointerEvent } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import './background-trend.css';
@@ -38,10 +38,10 @@ export default function BackgroundTrendChart() {
   };
   const clear = () => { input.current = null; setActive(null); };
   const leaveMouse = () => { if (input.current === 'mouse') clear(); };
-  const move = (event: ReactPointerEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>) => {
-    if ('pointerType' in event && event.pointerType !== 'mouse') return;
-    const native = event.nativeEvent as globalThis.MouseEvent & { sourceCapabilities?: { firesTouchEvents?: boolean } };
-    if (native.sourceCapabilities?.firesTouchEvents) return;
+  const move = (event: PointerEvent | MouseEvent) => {
+    if ('pointerType' in event && (event.pointerType === 'touch' || event.pointerType === 'pen')) return;
+    const native = event as MouseEvent & { sourceCapabilities?: { firesTouchEvents?: boolean } };
+    if (event.type === 'mousemove' && native.sourceCapabilities?.firesTouchEvents) return;
     const matrix = svg.current?.getScreenCTM();
     if (!matrix || !svg.current) return;
     const point = svg.current.createSVGPoint();
@@ -77,9 +77,21 @@ export default function BackgroundTrendChart() {
       if (!root.current?.contains(event.target as Node) && !tooltip.current?.contains(event.target as Node)) clear();
     };
     const escape = (event: KeyboardEvent) => { if (event.key === 'Escape') clear(); };
+    // Listen before target/React bubbling. Existing transparent targets, an
+    // overlay or a propagation-stopping handler must not lock the first year.
+    const out = (event: MouseEvent) => { if (!event.relatedTarget) leaveMouse(); };
+    const blur = () => leaveMouse();
+    document.addEventListener('pointermove', move, true);
+    document.addEventListener('mousemove', move, true);
+    document.addEventListener('mouseout', out, true);
+    window.addEventListener('blur', blur);
     document.addEventListener('pointerdown', outside);
     document.addEventListener('keydown', escape);
     return () => {
+      document.removeEventListener('pointermove', move, true);
+      document.removeEventListener('mousemove', move, true);
+      document.removeEventListener('mouseout', out, true);
+      window.removeEventListener('blur', blur);
       document.removeEventListener('pointerdown', outside);
       document.removeEventListener('keydown', escape);
     };
@@ -89,7 +101,7 @@ export default function BackgroundTrendChart() {
   const ready = visible || !!reduced;
   return (
     <div ref={root} className="background-trend" role="group" aria-label="Global Stray Animal Growth Trend. Focus or tap a year for values in million."
-      onPointerMove={move} onMouseMove={move} onPointerLeave={leaveMouse} onMouseLeave={leaveMouse}>
+      data-active-year={active === null ? undefined : backgroundTrend[active].year}>
       <motion.svg ref={svg} viewBox="0 0 1300 760" className="background-trend__svg" aria-hidden="true"
         initial={false} animate={{ opacity: ready ? 1 : 0, y: ready ? 0 : 8 }}
         transition={{ duration: reduced ? 0 : 0.55 }}>
@@ -150,7 +162,11 @@ export default function BackgroundTrendChart() {
           aria-describedby={active === index ? tipId : undefined}
           onFocus={(event) => { if (event.currentTarget.matches(':focus-visible')) select(index, 'keyboard'); }}
           onBlur={() => { if (input.current === 'keyboard') clear(); }}
-          onClick={(event) => select(index, event.detail === 0 ? 'keyboard' : 'touch')}
+          onClick={(event) => {
+            const native = event.nativeEvent as MouseEvent & { pointerType?: string; sourceCapabilities?: { firesTouchEvents?: boolean } };
+            const touch = native.pointerType === 'touch' || native.pointerType === 'pen' || native.sourceCapabilities?.firesTouchEvents;
+            select(index, event.detail === 0 ? 'keyboard' : touch ? 'touch' : 'mouse');
+          }}
           onKeyDown={(event) => {
             if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
               event.preventDefault();
