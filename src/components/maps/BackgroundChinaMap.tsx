@@ -3,16 +3,16 @@ import { createPortal } from 'react-dom';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import './background-china-map.css';
 
-// Measured marker centres in the original 4994 × 3257 portfolio image.
+// Measured marker centres in the corrected 4994 × 3257 portfolio image.
 // These are image coordinates, not locations inferred from administrative outlines.
 const cities = [
-  { id: 'beijing', name: 'Beijing', x: 744, y: 1953, outline: 'beijing-outline.png',
+  { id: 'beijing', name: 'Beijing', x: 732, y: 1966, outline: 'beijing-outline.png',
     description: 'Highlighted as a visibility hotspot in this map. The darker shading draws attention to reported stray-animal issues; it does not establish the largest stray population.' },
-  { id: 'shanghai', name: 'Shanghai', x: 839, y: 2139, outline: 'shanghai-outline.png',
+  { id: 'shanghai', name: 'Shanghai', x: 828, y: 2153, outline: 'shanghai-outline.png',
     description: 'Highlighted within the map’s coastal urban context. Visibility in public reports should be distinguished from the actual number of stray animals.' },
-  { id: 'chengdu', name: 'Chengdu · Sichuan', x: 518, y: 2155, outline: 'sichuan-outline.png',
+  { id: 'chengdu', name: 'Chengdu · Sichuan', x: 505, y: 2170, outline: 'sichuan-outline.png',
     description: 'An inland hotspot highlighted in this overview, extending the map’s focus beyond coastal cities. Its lighter shading does not establish a smaller stray population.' },
-  { id: 'guangzhou', name: 'Guangzhou · Guangdong', x: 705, y: 2282, outline: 'guangdong-outline.png',
+  { id: 'guangzhou', name: 'Guangzhou · Guangdong', x: 693, y: 2298, outline: 'guangdong-outline.png',
     description: 'Highlighted within southern China’s coastal urban context. The emphasis concerns the visibility of stray-animal issues, rather than a measured provincial total.' },
 ];
 

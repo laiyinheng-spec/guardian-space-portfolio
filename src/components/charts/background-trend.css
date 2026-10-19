@@ -1,12 +1,12 @@
-/* Coordinates measured against the unchanged 4994 × 3257 Background image.
+/* Crop registered to the corrected 4994 × 3257 Background image.
    The opaque mask stays stationary; only the SVG contents animate. */
 .portfolio-background-page { position: relative; width: 100%; }
 .background-trend {
   position: absolute;
-  left: calc(145 / 4994 * 100%);
-  top: calc(570 / 3257 * 100%);
-  width: calc(1300 / 4994 * 100%);
-  height: calc(760 / 3257 * 100%);
+  left: calc(129.06 / 4994 * 100%);
+  top: calc(573.94 / 3257 * 100%);
+  width: calc(1308.82 / 4994 * 100%);
+  height: calc(765.13 / 3257 * 100%);
   background: #fffdf8;
   isolation: isolate;
 }

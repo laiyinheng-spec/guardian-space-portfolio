@@ -1,12 +1,12 @@
 import { useState, type MouseEvent } from 'react';
 import './prototype-system-hover.css';
 
-// Measured on the unchanged 4994 × 3257 page08/8.png, also used as
-// the reference. Only existing image edges, labels and arrows are emphasized.
+// Measured on the corrected 4994 × 3257 content-corrections/page-08.png.
+// Top images moved; the code and behavior strip keep their original positions. Only existing image edges, labels and arrows are emphasized.
 const groups = [
-  { name: 'Hand Tracking', image: [716,405,477,424], trigger: [704,395,505,520] },
-  { name: 'Interaction', image: [1359,407,547,424], trigger: [1347,395,575,520] },
-  { name: 'Pet Response', image: [2086,411,298,422], trigger: [2074,398,325,517] },
+  { name: 'Hand Tracking', image: [714,456,477,424], trigger: [702,446,505,520] },
+  { name: 'Interaction', image: [1357,458,547,424], trigger: [1345,446,575,520] },
+  { name: 'Pet Response', image: [2084,462,298,422], trigger: [2072,449,325,517] },
 ];
 const behaviors = [
   { label: [1537,1485,53,26], frame: [1349,1042,248,412] },
@@ -27,14 +27,14 @@ export default function PrototypeSystemHover() {
         <rect className="prototype-system-hover__image-edge" x={group.image[0]-3} y={group.image[1]-3} width={group.image[2]+6} height={group.image[3]+6} rx="13" />
         {index === 0 && <>
           <rect className="prototype-system-hover__image-edge" x="291" y="1024" width="828" height="454" rx="2" />
-          <path className="prototype-system-hover__arrow" d="M 622 1022 L 911 920" />
-          <path className="prototype-system-hover__arrowhead" d="M 890 913 L 911 920 L 902 942" />
+          <path className="prototype-system-hover__arrow" d="M 622 1022 L 800 932" />
+          <path className="prototype-system-hover__arrowhead" d="M 778 923 L 800 932 L 792 954" />
         </>}
         {index === 1 && behaviors.map(({label:[x,y,width,height]}) => <rect key={x} className="prototype-system-hover__marker" x={x-7} y={y+4} width={width+14} height={height*.82} rx="4" />)}
         {index === 2 && <>
           {behaviors.map(({frame:[x,y,width,height]}) => <rect key={x} className="prototype-system-hover__behavior-frame" x={x} y={y} width={width} height={height} />)}
-          <path className="prototype-system-hover__arrow" d="M 1849 1036 L 2258 920" />
-          <path className="prototype-system-hover__arrowhead" d="M 2238 911 L 2258 920 L 2247 942" />
+          <path className="prototype-system-hover__arrow" d="M 1849 1036 L 2121 928" />
+          <path className="prototype-system-hover__arrowhead" d="M 2099 918 L 2121 928 L 2112 950" />
         </>}
       </g>)}
     </svg>

@@ -1,11 +1,12 @@
-/* Original map and explanation coordinates; the heading and source note remain
+/* Corrected explanation ends at y=2681, above the source at y=2692.
+   The map crop itself is unchanged; the heading and source note remain
    in the original image. All overlay geometry scales with that image. */
 .world-map {
   position: absolute; left: calc(1525 / 4994 * 100%); top: calc(1515 / 3257 * 100%);
-  width: calc(1330 / 4994 * 100%); height: calc(1150 / 3257 * 100%);
+  width: calc(1330 / 4994 * 100%); height: calc(1166 / 3257 * 100%);
   container-type: inline-size;
 }
-.world-map__stage { position: absolute; inset: 0 0 auto; height: calc(1003 / 1150 * 100%); overflow: visible; background: #fffdf8; }
+.world-map__stage { position: absolute; inset: 0 0 auto; height: calc(1003 / 1166 * 100%); overflow: visible; background: #fffdf8; }
 .world-map__content { position: relative; width: 100%; height: 100%; }
 .world-map__image { display: block; width: 100%; height: 100%; }
 .world-map__hint {
@@ -82,8 +83,8 @@
   .world-map__marker[data-region="latin-america"] .world-map__visual { margin-left: 14px; }
 }
 .world-map__explanation {
-  position: absolute; top: calc(1003 / 1150 * 100%); left: 0;
-  width: calc(1295 / 1330 * 100%); height: calc(147 / 1150 * 100%);
+  position: absolute; top: calc(1003 / 1166 * 100%); left: calc(-7 / 1330 * 100%);
+  width: calc(1310 / 1330 * 100%); height: calc(163 / 1166 * 100%);
   padding: 0.45cqw 1cqw; border-top: 0.2cqw solid #f5c4a4;
   background: linear-gradient(90deg, #fcefe2, #fffaf4); color: #654333;
   font-family: Arial, sans-serif;
