@@ -1,3 +1,13 @@
+import usePrototypeNavigation from '../hooks/usePrototypeNavigation';
+import PrototypeSystemHover from '../components/prototype-system/PrototypeSystemHover';
+import UserFlowInteractions from '../components/user-flow/UserFlowInteractions';
+import MrSelectionHover from '../components/mr-direction/MrSelectionHover';
+import ConceptHoverInteractions from '../components/concept/ConceptHoverInteractions';
+import TrustProofEvidence from '../components/research/TrustProofEvidence';
+import BackgroundWorldMap from '../components/maps/BackgroundWorldMap';
+import BackgroundChinaMap from '../components/maps/BackgroundChinaMap';
+import BackgroundTrendChart from '../components/charts/BackgroundTrendChart';
+
 type PortfolioImagePageProps = {
   pages: Array<{
     imageSrc: string;
@@ -6,9 +16,45 @@ type PortfolioImagePageProps = {
 };
 
 export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
+  const openPrototype = usePrototypeNavigation();
   return (
     <main className="portfolio-image-stage" aria-label="Guardian Space portfolio">
-      {pages.map((page) => (
+      {pages.map((page) => page.pageNumber === '02' ? (
+        <div className="portfolio-background-page" key={page.pageNumber} id="background">
+          <img className="portfolio-image-page" src={page.imageSrc}
+            alt="Guardian Space portfolio page 02. Background and secondary research; interactive growth chart follows." />
+          <BackgroundTrendChart />
+          <BackgroundChinaMap imageSrc={page.imageSrc} />
+          <BackgroundWorldMap imageSrc={page.imageSrc} />
+          {/* The corrected base image already includes the original interaction badges. */}
+        </div>
+      ) : page.pageNumber === '03' ? (
+        <div className="portfolio-research-page" key={page.pageNumber}>
+          <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 03: Primary Research and User Analysis" />
+          <TrustProofEvidence imageSrc={page.imageSrc} />
+          {/* The corrected base image already includes the original evidence badge. */}
+        </div>
+      ) : page.pageNumber === '04' ? (
+        <div className="portfolio-concept-page" key={page.pageNumber}>
+          <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 04: Concept Development" />
+          <ConceptHoverInteractions />
+        </div>
+      ) : page.pageNumber === '05' ? (
+        <div className="portfolio-mr-direction-page" key={page.pageNumber}>
+          <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 05: Why MR and Project Overview" />
+          <MrSelectionHover />
+        </div>
+      ) : page.pageNumber === '06' ? (
+        <div className="portfolio-user-flow-page" key={page.pageNumber}>
+          <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 06: User Flow and UI Interface" />
+          <UserFlowInteractions />
+        </div>
+      ) : page.pageNumber === '08' ? (
+        <div className="portfolio-prototype-system-page" key={page.pageNumber}>
+          <img className="portfolio-image-page" src={page.imageSrc} alt="Guardian Space portfolio page 08: Prototype System, Interaction Showcase and Development" />
+          <PrototypeSystemHover />
+        </div>
+      ) : (
         <img
           className="portfolio-image-page"
           key={page.pageNumber}
@@ -22,9 +68,11 @@ export default function PortfolioImagePage({ pages }: PortfolioImagePageProps) {
           <h1 id="prototype-cta-title">Experience Guardian Space</h1>
           <a
             className="portfolio-prototype-cta__button"
-            href="https://guardian-space-prototype.vercel.app"
+            id="mr-prototype-entry"
+            href="https://guardian-space-prototype.vercel.app/"
+            onClick={openPrototype}
             target="_blank"
-            rel="noreferrer"
+            rel="opener"
           >
             <span>Enter MR Prototype</span>
             <span aria-hidden="true">-&gt;</span>

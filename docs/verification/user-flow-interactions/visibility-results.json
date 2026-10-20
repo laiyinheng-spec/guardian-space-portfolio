@@ -1,0 +1,7 @@
+{
+  "method": "Chromium with emulated document.hidden and visibilitychange; headless tabs do not become hidden when another tab is brought forward",
+  "before": "113",
+  "paused": "113",
+  "resumed": "513",
+  "keyboardInterrupt": true
+}

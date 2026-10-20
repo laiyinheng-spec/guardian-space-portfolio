@@ -1,0 +1,56 @@
+[
+  {
+    "width": 1440,
+    "groups": 8,
+    "hover": true,
+    "fullGroupHit": true,
+    "keyboard": true,
+    "rapidSwitch": true,
+    "aspect": true,
+    "noOverflow": true
+  },
+  {
+    "width": 1024,
+    "groups": 8,
+    "hover": true,
+    "fullGroupHit": true,
+    "keyboard": true,
+    "rapidSwitch": true,
+    "aspect": true,
+    "noOverflow": true
+  },
+  {
+    "width": 768,
+    "groups": 8,
+    "hover": true,
+    "fullGroupHit": true,
+    "keyboard": true,
+    "rapidSwitch": true,
+    "aspect": true,
+    "noOverflow": true
+  },
+  {
+    "width": 390,
+    "groups": 8,
+    "hover": true,
+    "fullGroupHit": true,
+    "keyboard": true,
+    "rapidSwitch": true,
+    "aspect": true,
+    "noOverflow": true
+  },
+  {
+    "width": 320,
+    "groups": 8,
+    "hover": true,
+    "fullGroupHit": true,
+    "keyboard": true,
+    "rapidSwitch": true,
+    "aspect": true,
+    "noOverflow": true
+  },
+  {
+    "touchStatic": true,
+    "reducedMotion": true
+  }
+]

@@ -1,0 +1,47 @@
+/* Crop registered to the corrected 4994 × 3257 Background image.
+   The opaque mask stays stationary; only the SVG contents animate. */
+.portfolio-background-page { position: relative; width: 100%; }
+.background-trend {
+  position: absolute;
+  left: calc(129.06 / 4994 * 100%);
+  top: calc(573.94 / 3257 * 100%);
+  width: calc(1308.82 / 4994 * 100%);
+  height: calc(765.13 / 3257 * 100%);
+  background: #fffdf8;
+  isolation: isolate;
+}
+.background-trend__svg { pointer-events: none; display: block; width: 100%; height: 100%; overflow: visible; }
+.background-trend__years {
+  position: absolute;
+  left: 2.68%; right: 0;
+  top: 20.8%; bottom: 7%;
+  display: grid; grid-template-columns: repeat(6, 1fr);
+}
+.background-trend__year {
+  display: block; width: 100%; min-width: 0; padding: 0;
+  border: 0; border-radius: 0; background: transparent; cursor: crosshair;
+  -webkit-tap-highlight-color: transparent;
+}
+.background-trend__year:focus-visible { outline: 2px solid #7c3f2d; outline-offset: -2px; background: rgb(237 101 43 / 5%); }
+.background-trend-tooltip {
+  position: fixed; z-index: 100; pointer-events: none;
+  width: 294px; max-width: calc(100vw - 16px);
+  padding: 13px 15px; border: 1px solid #dcc5b1; border-radius: 10px;
+  background: #fffdf8; color: #654333;
+  font: 13px/1.5 Arial, sans-serif;
+  box-shadow: 0 8px 28px rgb(87 54 32 / 16%);
+}
+.background-trend-tooltip strong { display: block; margin-bottom: 7px; }
+.background-trend-tooltip strong span { font-weight: 400; }
+.background-trend-tooltip > div { display: flex; align-items: center; gap: 6px; }
+.background-trend-tooltip b { margin-left: auto; }
+.background-trend-tooltip i { width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; }
+.background-trend-tooltip__china { background: #ed652b; }
+.background-trend-tooltip__global { background: #ffa465; }
+.background-trend-tooltip small { display: block; margin-top: 7px; color: #806958; font-size: 11px; }
+@media (prefers-reduced-motion: reduce) {
+  .background-trend__svg { opacity: 1 !important; transform: none !important; }
+}
+@media print {
+  .background-trend, .background-trend-tooltip { display: none; }
+}

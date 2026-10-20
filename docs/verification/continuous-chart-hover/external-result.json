@@ -1,0 +1,10 @@
+{
+  "url": "https://guardian-space-prototype.vercel.app/",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "zoom": 1,
+  "fullscreen": false,
+  "error": "page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://guardian-space-prototype.vercel.app/\nCall log:\n\u001b[2m  - navigating to \"https://guardian-space-prototype.vercel.app/\", waiting until \"load\"\u001b[22m\n"
+}

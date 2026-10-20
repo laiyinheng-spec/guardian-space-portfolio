@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guardian Space Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="prototype-exit.css" />
+  </head>
+  <body>
+    <div id="prototype-exit-shell" popover="manual"><button id="prototype-close" type="button" aria-label="Close prototype and return to portfolio">× Close</button></div>
+    <script src="prototype-exit.js"></script>
+    <main id="app" class="app-shell" aria-live="polite">
+      <section id="sceneRoot" class="scene-root" aria-label="Guardian Space prototype"></section>
+      <aside class="prototype-help" aria-label="Prototype shortcuts">
+        <span>R: reference</span>
+        <span>H: hotspots</span>
+        <span>1-0: scenes</span>
+        <span>Arrows: prev/next</span>
+        <a class="prototype-help-button" href="gesture-room.html">3D Pet</a>
+        <span>G: 3D pet</span>
+      </aside>
+    </main>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

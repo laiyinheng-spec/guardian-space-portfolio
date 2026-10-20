@@ -1,0 +1,50 @@
+[
+  {
+    "width": 1440,
+    "updatedImages": 5,
+    "aspectRatios": "unchanged",
+    "chinaCards": 4,
+    "worldSelections": 3,
+    "overview": "restored",
+    "researchThemes": 4,
+    "mrSelections": 8,
+    "flowSteps": 10,
+    "uiLinks": 8,
+    "prototypeGroups": 3,
+    "hoverSwitchLeaveFocus": "passed",
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "width": 768,
+    "updatedImages": 5,
+    "aspectRatios": "unchanged",
+    "chinaCards": 4,
+    "worldSelections": 3,
+    "overview": "restored",
+    "researchThemes": 4,
+    "mrSelections": 8,
+    "flowSteps": 10,
+    "uiLinks": 8,
+    "prototypeGroups": 3,
+    "hoverSwitchLeaveFocus": "passed",
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "updatedImages": 5,
+    "aspectRatios": "unchanged",
+    "chinaCards": 4,
+    "worldSelections": 3,
+    "overview": "restored",
+    "researchThemes": 4,
+    "mrSelections": 8,
+    "flowSteps": 10,
+    "uiLinks": 8,
+    "prototypeGroups": 3,
+    "hoverSwitchLeaveFocus": "passed",
+    "horizontalOverflow": false,
+    "errors": []
+  }
+]

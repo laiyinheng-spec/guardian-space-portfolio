@@ -1,0 +1,50 @@
+{
+  "world": [
+    {
+      "width": 1440,
+      "geometry": {
+        "bottom": 2680.8611328125003,
+        "top": 2517.9167100694444,
+        "copyBottom": 756.671875,
+        "panelBottom": 773.15625
+      },
+      "selectionAndOverview": "passed"
+    },
+    {
+      "width": 768,
+      "geometry": {
+        "bottom": 2680.698567708333,
+        "top": 2517.72705078125,
+        "copyBottom": 403.75,
+        "panelBottom": 412.125
+      },
+      "selectionAndOverview": "passed"
+    },
+    {
+      "width": 390,
+      "geometry": {
+        "bottom": 2680.4734775641023,
+        "top": 2517.608253205128,
+        "copyBottom": 205.953125,
+        "panelBottom": 209.671875
+      },
+      "selectionAndOverview": "passed"
+    }
+  ],
+  "animation": {
+    "turn-1": "2030",
+    "turn-2": "4676",
+    "turn-3": "7373",
+    "last-row": "8886",
+    "completedOnce": true
+  },
+  "touch": {
+    "width": 390,
+    "themes": 4,
+    "toggleAndOutside": "passed",
+    "chinaCard": "passed",
+    "worldRegions": 3,
+    "overview": "passed",
+    "physicalPhone": false
+  }
+}

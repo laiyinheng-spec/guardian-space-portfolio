@@ -1,0 +1,13 @@
+.portfolio-mr-direction-page { position: relative; width: 100%; isolation: isolate; container-type: inline-size; }
+.portfolio-mr-direction-page > .portfolio-image-page { position: relative; z-index: 0; }
+.mr-selection-hover { position: absolute; inset: 0; z-index: 1; pointer-events: none; mix-blend-mode: multiply; }
+.mr-selection-hover__drawing { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; mix-blend-mode: multiply; }
+.mr-selection-hover__drawing g { opacity: 0; transition: opacity 200ms ease; }
+.mr-selection-hover__drawing g[data-active='true'] { opacity: 1; }
+.mr-selection-hover__image-ring,
+.mr-selection-hover__symbol-ring { fill: none; stroke: #df681e; stroke-width: clamp(1.4px, .17cqw, 2.4px); vector-effect: non-scaling-stroke; }
+.mr-selection-hover__marker { fill: #ffc46b; fill-opacity: .6; mix-blend-mode: multiply; }
+.mr-selection-hover__trigger { position: absolute; z-index: 2; padding: 0; border: 0; border-radius: 2px; background: transparent; pointer-events: auto; cursor: pointer; appearance: none; }
+.mr-selection-hover__trigger:focus { outline: none; }
+.mr-selection-hover__trigger:focus-visible { outline: 2px dashed #c25419; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .mr-selection-hover__drawing g { transition: none; } }

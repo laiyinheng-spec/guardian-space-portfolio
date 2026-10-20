@@ -1,0 +1,60 @@
+{
+  "320": {
+    "tenHover": true,
+    "mapping": true,
+    "keyboard": true,
+    "switch": true,
+    "ratio": true,
+    "gap": true,
+    "overflow": false
+  },
+  "390": {
+    "tenHover": true,
+    "mapping": true,
+    "keyboard": true,
+    "switch": true,
+    "ratio": true,
+    "gap": true,
+    "overflow": false
+  },
+  "768": {
+    "tenHover": true,
+    "mapping": true,
+    "keyboard": true,
+    "switch": true,
+    "ratio": true,
+    "gap": true,
+    "overflow": false
+  },
+  "1024": {
+    "tenHover": true,
+    "mapping": true,
+    "keyboard": true,
+    "switch": true,
+    "ratio": true,
+    "gap": true,
+    "overflow": false
+  },
+  "1440": {
+    "tenHover": true,
+    "mapping": true,
+    "keyboard": true,
+    "switch": true,
+    "ratio": true,
+    "gap": true,
+    "overflow": false
+  },
+  "viewport": {
+    "noEarlyPlay": true,
+    "pause": true,
+    "resume": true
+  },
+  "auto": {
+    "allTenNodes": true,
+    "noUiLink": true,
+    "complete": true,
+    "once": true
+  },
+  "interruption": true,
+  "touchStatic": true
+}

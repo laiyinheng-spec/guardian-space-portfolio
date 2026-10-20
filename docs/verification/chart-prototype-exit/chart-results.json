@@ -1,0 +1,37 @@
+[
+  {
+    "width": 1440,
+    "zoom": 1,
+    "continuousYears": true,
+    "keyboard": true,
+    "mouseOverridesKeyboard": true
+  },
+  {
+    "width": 1440,
+    "zoom": 1.25,
+    "continuousYears": true,
+    "keyboard": true,
+    "mouseOverridesKeyboard": true
+  },
+  {
+    "width": 1024,
+    "zoom": 0.8,
+    "continuousYears": true,
+    "keyboard": true,
+    "mouseOverridesKeyboard": true
+  },
+  {
+    "width": 390,
+    "zoom": 1,
+    "continuousYears": true,
+    "keyboard": true,
+    "mouseOverridesKeyboard": true
+  },
+  {
+    "width": 320,
+    "zoom": 1.5,
+    "continuousYears": true,
+    "keyboard": true,
+    "mouseOverridesKeyboard": true
+  }
+]

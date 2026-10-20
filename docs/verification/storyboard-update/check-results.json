@@ -1,0 +1,30 @@
+[
+  {
+    "viewport": 1440,
+    "src": "/assets/storyboard-update/storyboard-page.png",
+    "naturalWidth": 4994,
+    "naturalHeight": 3257,
+    "width": 1440,
+    "height": 939.140625,
+    "objectFit": "contain",
+    "overflow": false,
+    "gap": 0,
+    "images": 8,
+    "userFlowTriggers": 10,
+    "errors": []
+  },
+  {
+    "viewport": 390,
+    "src": "/assets/storyboard-update/storyboard-page.png",
+    "naturalWidth": 4994,
+    "naturalHeight": 3257,
+    "width": 390,
+    "height": 254.34375,
+    "objectFit": "contain",
+    "overflow": false,
+    "gap": 0,
+    "images": 8,
+    "userFlowTriggers": 10,
+    "errors": []
+  }
+]
