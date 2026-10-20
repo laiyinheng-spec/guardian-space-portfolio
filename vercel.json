@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "project",
+          "value": "tangible-string-interface"
+        }
+      ],
+      "destination": "https://tangible-string-interface.vercel.app/",
+      "permanent": false
+    }
+  ]
+}
